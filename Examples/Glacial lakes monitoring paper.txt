@@ -1,0 +1,48 @@
+Describe the Sentinel 2 dataset used in the following paper?
+
+We conduct two experiments to evaluate the accuracy
+and computational trade-offs associated with alternative ap-
+proaches to historical guidance in glacial lakes monitoring.
+In the first experiment, historical labels are used to support
+predictions across a series of timepoints in a new, moderate
+resolution modality. Specifically, we use imagery from Sen-
+tinel 2 from 2015 - 2016 for training, 2021 for evaluation, and
+2015 - 2021 to infer overall trends. In the second experiment,
+these labels support prediction using a new, high resolution
+modality at a single future timepoint. These images are gen-
+erated by MAXAR satellites and were obtained through Bing
+Maps in 2021.
+In both experiments, we train models using the ICIMOD
+inventory of glacial lakes in the Himalayas [11]. These labels
+were collected through manual selection and correction of
+automatically generated hyperpixels generated on Landsat 7
+imagery. The resulting labels are polygons whose vertices
+encode lake boundaries. A histogram of lake sizes derived
+from this survey is provided in Appendix Figure 9. A total of
+3,624 lake boundaries are available.
+Since they were curated using Landsat 7 images, these labels
+will not exactly match either the Sentinel 2 or Bing imagery
+used for training. For Sentinel 2, even after filtering to 2015
+- 2016, differences in cloud cover, ice cover, and registration
+can lead to inconsistencies. For Bing imagery, only the most
+recent scenes are available, and lakes have likely changed from
+2015 to 2021. Noisy labels can often lead to sensible models,
+which is why we train models in spite of the discrepancy [1].
+However, they may lead to biased evaluations.
+For this reason, we have curated additional polygon labels
+associated with the most recent imagery from Sentinel 2
+and Bing Maps associated with randomly selected lake IDs,
+restricting only to those lake IDs that were not sampled by
+Sentinel in 2015 - 2016 or which were absent from the Bing
+Maps training and validation sets. Specifically, 139 and 50
+lakes were randomly selected from among these Sentinel 2
+and Bing Maps candidates, respectively. The most recently
+available lake image satisfying the same filtering criteria
+used in the experiments below was then labeled. Since our
+interest is primarily on the use of historical labels to improve
+predictions on more recent data sources, and since many fewer
+are available here compared to the ICIMOD inventory, these
+labels are only used for evaluation, not training.
+
+The datasets
+

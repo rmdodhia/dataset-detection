@@ -1,0 +1,40 @@
+Which dataset was used in the following text?
+
+Deploying reliable ML models for banknote recognition requires images of banknotes in real assistive scenarios, i.e.
+varying background, illumination, blur, orientation, occlusion and focus conditions. Although, high quality scans of
+multiple currencies are available in banknote collectors’ websites such as [3, 6 ], abundant data of real usage scenarios
+for assistive applications is very limited. In consequence, we design our data collection process with this accessibility
+application in mind.
+
+BankNote-Net: Open dataset for assistive universal currency recognition 3
+Fig. 1. Our approach: we use a convolutional neural network (MobileNet V2) as an encoder for our assistive banknote images. Using
+supervised contrastive learning, the models learns an highly-compressed and descriptive embedding for each image. We use these
+embeddings for downstream tasks, such as recognition of Yen banknotes, as shown in the figure. Our final dataset is composed of the
+learned embeddings for 17 currencies and 224 classes. "Dense Classifier" corresponds to a fully-connected neural network, and "GAP"
+corresponds to a Global Average Pooling layer.
+The final data collection process consisted of the following steps:
+(1) Currency selection: we selected the particular currencies to collect according to population and geographic
+diversity, and according to areas with high number of users of the Microsoft Seeing AI app.
+(2) Recruitment: for each specific currency, we on-boarded consenting volunteers or Amazon Mechanical Turk [2 ]
+workers to perform data collection.
+(3) Training: each worker or volunteer was provided with a brochure of requirements for the desired pictures along
+with example pictures. This brochure is included in Appendix A.
+(4) Data collection: each worker or volunteer captured and labelled up around 100 images for each orientation
+(front or back) of each denomination of a specific currency. Each picture was captured with a square aspect
+ratio to facilitate preprocessing. The images of each currency were captured exclusively by 1 or 2 volunteers
+or workers located in the country where a specific currency is used; this decision was made to improve data
+completeness across all denominations of a given currency.
+Manuscript submitted to ACM
+
+
+(5) Data validation and preparation: the collected data was validated manually by the authors to check for
+inconsistencies in labelling or limited image diversity. Then, the file formats were standardized and all images
+were resized to 224 x 224 pixels.
+In total, 24,826 images were collected from 17 currencies. Figure 2a presents the distribution of collected images
+across currencies, the distribution of images per class, and multiple examples of the collected images. The images span
+112 denominations and 224 classes (each denomination maps to two classes, corresponding to the front and back faces
+of the banknote). The mean number of images per class is 110, as shown in Figure 2. For banknotes that have more
+than a one version in circulation, we defined each banknote version as a different class. Appendix B has a list of all
+denominations and classes in our dataset.
+
+The dataset consists

@@ -1,0 +1,56 @@
+Describe the Miburo dataset found in the following paper?
+
+The datasets described below are used to train and test
+the machine learning models described in section 3.1.
+NewsGuard Dataset NewsGuard [28] is a journal-
+ism and technology company that rates the credibil-
+ity of news websites. NewsGuard rates and scores
+domains based on nine apolitical criteria that assess
+basic practices of credibility and transparency. Do-
+mains that receive a score below 60 out of 100 fail to
+meet basic standards of credibility and transparency
+according to NewsGuard and are classified as mis-
+information domains. Domains with a score greater
+than 60 are classified as non-misinformation domains
+and are also used in our experiments. The domains la-
+beled by NewsGuard as non-misinformation are also
+referred to as authoritative news domains throughout
+this paper.
+GDI Dataset The Global Disinformation Index
+(GDI) [38] is a non-profit organization that pro-
+duces independent ratings of news sites’ disinforma-
+tion risk. The risk rating are then used by advertis-
+ing technology companies to ensure sites do not end
+up supporting high risk websites. The dataset pro-
+vided by GDI used in our experiments contains do-
+mains 1436 domains that were manually verified as a
+misinformation spreader.
+Miburo Dataset Miburo [24] is a strategic analysis
+and consulting company specializing in the detection
+and countering of malign influence and extremism.
+The dataset we compiled from reports provided by
+Miburo contains 321 domains that were verified by
+experts as Russian propaganda spreaders.
+Edge Logs Dataset We collected three months
+of instrumentation data from Edge, a desktop web
+3
+browser. Our analysis begins on January 1, 2022,
+and ends on March 31, 2022. Along with the lists of
+domains provided by GDI and NewsGuard, we also
+queried the top 5,000 domains, ranked by unique vis-
+its in the Edge Browser. Of these 5,000 the 4,974
+domains not contained in existing lists of misinfor-
+mation domains and will serve as part of the non-
+misinformation domains dataset.
+Subsequently, we collected traffic information.
+The traffic dataset consists of a list of timestamped
+visits to domains, together with inbound and out-
+bound traffic information. Inbound traffic consists of
+which domain is visited before the domain of interest.
+Outbound traffic consists of which domain is visited
+after the domain of interest. For our study, we col-
+lected visits to all domains contained in the datasets
+listed in Table 1, which includes misinformation do-
+mains and non-misinformation domains.
+
+The datasets

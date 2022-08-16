@@ -2,14 +2,13 @@ import os
 import openai
 import pandas as pd
 
-rcw=pd.read_csv('./RCW.csv')
 
 openai.api_type = "azure"
 openai.api_base = "https://aiforgoodlab-scu-openai.openai.azure.com/"
 openai.api_version = "2022-03-01-preview"
 openai.api_key = '[#add your key here#]'
 
-
+#function to ignore newlines
 def pr(x):
     print(x, end='\n')
 
@@ -30,33 +29,7 @@ def davinci(prompt,temperature=0.70,max_tokens=60,p=0.9,full=False):
        return response.choices[0].text
 
 
-
-print(prompt,end='\n')
-
-response = davinci(prompt, max_tokens=220,temperature=.9,p=0.9)
-response.choices[0].text
-
-
-
-
-prompt = "which of the following comments is most similar to the original comment?"+ "\n original comment:"+c[0]+"\n comment 1:"+c[1]+"\n comment 2:"+c[3]
-
-
-rcw.loc['19 310 040']
-
-prompt="### Python code to write a transformer deep learning model"
-
-# prompt='Complete this poem: Roses are red, violets are blue, I...'
-# sendPrompt(prompt)
-
-
-c1 = list(rcw[(rcw.TitleNumber == '10') & (rcw.ChapterNumber ==
-          '64') & (rcw.SectionNumber == '100')]['P'])[0]
-c1 = list(rcw[(rcw.TitleNumber == '19') & (rcw.ChapterNumber ==
-          '310') & (rcw.SectionNumber == '040')]['P'])[0]
-prompt = "Classify the following clause into one of these[Court, Property, Rules, Finance]\n\nClause: "+c1
-pr(prompt)
-pr(davinci(prompt[0:500], temperature=1, max_tokens=400, p=.4))
+#Examples gpt-3 davinci completions
 
 prompt = 'Are there any books about Admiral Zheng He?'
 pr(davinci(prompt, temperature=1, max_tokens=400, p=.4))
@@ -133,9 +106,11 @@ pr(davinci(prompt,temperature=1,max_tokens=400,p=.7))
 #AI for Good Foundation
 #Disinformation Detection paper Section 2.1
 
-file='./banknotes paper.tex'
-file = './Glacial lakes monitoring paper.txt'
-file = './disinformation detection.txt'
+file='./Examples/banknotes paper.tex'
+file = './Examples/Glacial lakes monitoring paper.txt'
+file = './Examples/disinformation detection.txt'
+
+#read text file containing prompt
 with open(file, 'r') as f:
     prompt=f.read()
 pr(davinci(prompt, temperature=1, max_tokens=400))
